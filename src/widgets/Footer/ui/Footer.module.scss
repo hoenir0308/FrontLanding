@@ -1,0 +1,306 @@
+footer {
+  max-width: var(--desktop-width);
+  padding: 0 var(--container-padding-x) 20px;
+  margin-inline: auto;
+
+  .contactsBlock {
+    margin: 250px 0 150px;
+    position: relative;
+    width: 100%;
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: -125px;
+      right: 0;
+      width: 600px;
+      height: 770px;
+      object-fit: cover;
+      opacity: .1;
+      background: url('src/shared/assets/images/footer-bg.png')
+    }
+
+    .info {
+      max-width: 700px;
+
+      > h2 {
+        max-width: 100%;
+        margin: 0 0 16px;
+      }
+
+      > p {
+        margin: 0;
+        max-width: 517px;
+        font: var(--font-text-xl);
+        color: var(--color-white-80);
+      }
+
+      margin-bottom: 80px;
+    }
+
+    .contactsList {
+      padding-bottom: 8px;
+      display: grid;
+      width: 100%;
+      grid-template-columns: 1fr 1fr;
+      flex-wrap: wrap;
+      max-width: 500px;
+
+      :first-child {
+        margin-right: 135px;
+      }
+
+      :last-child {
+        margin-top: 80px;
+      }
+
+      .contactsItem {
+        width: 177px;
+        height: 68px;
+
+        > h4 {
+          margin: 0 0 16px;
+          padding: 0;
+          font: var(--font-display-md);
+          font-weight: 700;
+          font-size: 20px;
+          line-height: 24px;
+        }
+
+        > a {
+          margin: 0;
+          padding: 0;
+          text-decoration: none;
+          cursor: pointer;
+          font: var(--font-text-xl);
+          color: var(--color-white-80);
+          transition: .1s color;
+
+          &:hover {
+            color: var(--color-white-30);
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    font: var(--font-text-md);
+    color: var(--color-white-30);
+    text-align: center;
+  }
+
+  .footerNavMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+
+    .hoenirLogo {
+      width: 227px;
+      height: 58px;
+      background: url('src/shared/assets/icons/hoenir-logo-lowercase.svg');
+      flex-shrink: 0;
+      opacity: .3;
+    }
+
+    nav {
+      margin-bottom: 6px;
+
+      .navList {
+        display: flex;
+        gap: 40px;
+
+        .navItem {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+
+          > a {
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--color-white-30);
+            font: var(--font-text-lg);
+            transition: .1s color;
+            text-wrap: nowrap;
+            margin: 0;
+            padding: 0;
+
+            &:hover {
+              color: var(--color-white-10);
+            }
+          }
+        }
+      }
+    }
+
+    .logos {
+      display: flex;
+      list-style-type: none;
+      align-items: center;
+      justify-content: space-between;
+
+      li {
+        margin: 0;
+
+        a {
+          margin: 0;
+          cursor: pointer;
+
+          svg {
+            margin: 0;
+            width: 16px;
+            height: 16px;
+            transition: .1s opacity;
+
+            &:hover {
+              opacity: .7;
+            }
+          }
+        }
+      }
+
+      :not(:last-child) {
+        margin-right: 30px;
+      }
+
+    }
+  }
+}
+
+@media(width <= 1440px) {
+  footer {
+    overflow: hidden;
+  }
+}
+
+@media(width <= 1280px) {
+  footer {
+    padding-inline: var(--container-padding-x-smaller);
+  }
+}
+
+@media(width <= 1024px) {
+  footer {
+    padding-inline: var(--container-padding-x-tablet);
+
+    .footerNavMain {
+      .hoenirLogo {
+        width: 164px;
+        height: 30px;
+        background: url('src/shared/assets/icons/footer-logo-small.svg') no-repeat;
+      }
+
+      nav {
+        .navList {
+          gap: 24px;
+        }
+      }
+
+      .logos {
+        :not(:last-child) {
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media(width <= 768px) {
+  footer {
+    padding-inline: var(--container-padding-x-mobile);
+
+    .footerNavMain {
+      flex-wrap: wrap;
+      align-items: flex-end;
+
+      .hoenirLogo {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+
+      nav {
+        .navList {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+@media(width <= 600px) {
+  footer {
+    .contactsBlock {
+      .contactsList {
+        :first-child {
+          margin-right: 40px;
+        }
+
+        :last-child {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media(width <= 480px) {
+  footer {
+    padding-inline: var(--container-padding-x-mobile);
+
+    .footerNavMain {
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+
+      nav {
+        .navList {
+          flex-direction: column;
+          gap: 8px;
+        }
+      }
+    }
+
+    .contactsBlock {
+      margin-top: 200px;
+      margin-bottom: 128px;
+
+      .info {
+        margin-bottom: 52px;
+
+        > h2 {
+          font-size: 28px;
+          line-height: 36px;
+          margin-bottom: 8px;
+        }
+
+        > p {
+          font: var(--font-text-lg);
+        }
+      }
+
+      .contactsList {
+        grid-template-columns: 50% 50%;
+
+        :first-child {
+          margin-right: 0;
+        }
+
+        :last-child {
+          margin-top: 16px;
+        }
+
+        .contactsItem {
+          max-width: 100%;
+
+          > h4 {
+            margin-bottom: 8px;
+          }
+
+          > a {
+            font: var(--font-text-lg);
+          }
+        }
+      }
+    }
+  }
+}

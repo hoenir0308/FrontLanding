@@ -1,0 +1,131 @@
+.contactButtonContainer {
+  position: sticky;
+  max-width: 1440px;
+  width: 100vw;
+  z-index: 50;
+  height: 80px;
+  bottom: 40px;
+  right: 0;
+  margin-left: auto;
+}
+
+.buttonBorder {
+  width: 272px;
+  height: 80px;
+  position: absolute;
+  right: 0;
+  top: -8px;
+  bottom: 0;
+  content: '.';
+  border: 1.5px solid red;
+  background: transparent;
+  border-radius: 3px;
+  border-top: none;
+  border-right: none;
+  border-image: linear-gradient(40deg, var(--color-white) 0%, rgba(0 0 0 / 0%) 25%) 1;
+  opacity: 0;
+}
+
+.callButton {
+  clip-path: polygon(0 28px,28px 0,100% 0,100% calc(100% - 28px),calc(100% - 28px) 100%,0 100%);
+  background-color: var(--color-white-button);
+  padding: 8px;
+  box-sizing: border-box;
+  z-index: 50;
+  width: 264px;
+  height: 64px;
+  display: flex;
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 0;
+
+  &:hover {
+    > p {
+      transition: .9s color, .9s scale;
+      color: #525252;
+      transform: scale(1.08);
+    }
+
+    opacity: 0.6;
+  }
+
+  > p {
+    font: var(--font-text-sm);
+    color: var(--color-black);
+    text-transform: uppercase;
+  }
+}
+
+.callButtonFixed {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+}
+
+.callButtonAnimation, .callButtonAnimation + .buttonBorder {
+  opacity: 1;
+  bottom: 100px;
+  transition: opacity 1s, bottom 1s;
+  transition-delay: 1s;
+  transition-property: opacity, bottom;
+}
+
+@media(width > 1440px) {
+  .contactButtonContainer {
+    right: calc((100vw - 1440px) / 2);
+  }
+
+  .callButtonFixed, .buttonBorder {
+    right: calc(var(--container-padding-x));
+  }
+}
+
+@media(width <= 1440px) {
+  .contactButtonContainer {
+    right: 0;
+  }
+
+  .callButtonFixed, .buttonBorder {
+    right: calc(var(--container-padding-x) + 8px);
+  }
+}
+
+@media(width <= 1280px) {
+  .callButtonFixed, .buttonBorder {
+    right: calc(var(--container-padding-x-smaller) + 8px);
+  }
+}
+
+@media(width <= 768px) {
+  .callButtonFixed, .buttonBorder {
+    right: calc(var(--container-padding-x-tablet) + 8px);
+  }
+}
+
+@media(width <= 480px) {
+  .callButtonFixed, .buttonBorder {
+    right: calc(var(--container-padding-x-mobile) + 8px);
+  }
+
+  .contactButtonContainer {
+    bottom: var(--container-padding-x-mobile);
+  }
+}
+
+@media(width <= 320px) {
+  .callButtonFixed {
+    left: calc(var(--container-padding-x-mobile) + 8px);
+    bottom: 20px;
+  }
+
+  .buttonBorder {
+    left: var(--container-padding-x-mobile);
+    bottom: 20px;
+  }
+
+  .callButton {
+    max-width: 95vw;
+  }
+}

@@ -1,0 +1,73 @@
+.SchemaSwitcher {
+  > p {
+    font: var(--font-text-lg);
+    margin: 0 15px 0 0;
+    text-wrap: nowrap;
+  }
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 22px;
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    position: relative;
+    width: 211px;
+    height: 26px;
+    background: var(--color-white-10);
+
+    &:hover {
+      background: var(--color-white-20);
+      transition: .2s background;
+    }
+
+    .button {
+      outline: none;
+      border: none;
+      text-wrap: nowrap;
+      background: transparent;
+      font: var(--font-text-md);
+      color: var(--color-white);
+      cursor: pointer;
+      z-index: 10;
+      padding: 2px 12px;
+    }
+
+    .buttonActive {
+      transition: color .3s;
+      color: var(--color-black);
+    }
+
+    .caret {
+      position: absolute;
+      left: 2px;
+      width: 94px;
+      content: '';
+      height: 22px;
+      z-index: 5;
+      border-radius: 7px;
+      background: var(--color-white);
+      transition: left .3s, width .3s;
+    }
+
+    .caretActive {
+      left: 95px;
+      width: 114px;
+      transition: left .3s, width .3s;
+    }
+  }
+}
+
+@media(width <= 480px) {
+  .SchemaSwitcher {
+    flex-direction: column;
+    align-items: flex-start;
+
+    > p {
+      margin: 0 0 8px 2px;
+    }
+  }
+}

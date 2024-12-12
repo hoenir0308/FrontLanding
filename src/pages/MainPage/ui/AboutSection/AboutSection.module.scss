@@ -1,0 +1,291 @@
+.aboutSection {
+  height: 1036px;
+  background-color: var(--color-black);
+  z-index: 5;
+  position: relative;
+
+  .aboutSectionWrapper {
+    max-width: var(--container-width);
+    width: 100%;
+    height: 100%;
+    margin-inline: auto;
+    padding-inline: var(--container-padding-x);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .aboutSectionContainer {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    margin-bottom: 236px;
+
+    .aboutSectionList {
+      max-width: 750px;
+      width: 65%;
+
+      .aboutSectionItem {
+        position: relative;
+        margin-bottom: 20px;
+        cursor: pointer;
+        width: 100%;
+
+        > h2 {
+          margin: 0;
+          font: var(--font-display-lg);
+          color: var(--color-white-30);
+        }
+
+        .aboutSectionText {
+          transform: scale(0);
+          font: var(--font-text-xl);
+          line-height: 0;
+          opacity: 0;
+        }
+      }
+
+      .aboutSectionItem::before {
+        position: absolute;
+        z-index: var(--index-selected-element);
+        content: '';
+        left: -16px;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        border-radius: 2px;
+        color: rgb(255 255 255);
+        border-left: 1px solid var(--color-white);
+        transform: scaleY(0);
+      }
+
+      .aboutSectionItemActive {
+        margin-bottom: 40px;
+
+        > h2 {
+          margin-bottom: 16px;
+          transition: var(--duration-about-list) color, var(--duration-about-list) font-size;
+          color: var(--color-white);
+          font: var(--font-display-xl);
+        }
+
+        .aboutSectionText {
+          opacity: 1;
+          transform: scaleY(1);
+          transition: var(--duration-about-list) opacity ease-in-out, var(--duration-about-list) line-height;
+          font: var(--font-text-xl);
+        }
+      }
+
+      .aboutSectionItemActive::before {
+        transform: scaleY(1);
+        transition: var(--duration-about-list) transform ease-in-out;
+      }
+    }
+  }
+
+  .scrollEyesListContainer {
+    position: relative;
+    z-index: 0;
+    top: 30px;
+  }
+
+  .scrollEyesListContainer::before {
+    content: '';
+    width: 826px;
+    height: 738px;
+    position: absolute;
+    top: -120px;
+    transform: scale(0.95);
+    opacity: 0.6;
+    left: -30%;
+    z-index: -5;
+    filter: blur(100px);
+    background: url('src/shared/assets/images/Vega.svg') no-repeat;
+    object-fit: fill;
+  }
+
+  .scrollEyesListContainer::after {
+    width: 500px;
+    height: 500px;
+    content: '';
+    left: 0;
+    top: -87px;
+    z-index: 2;
+    position: absolute;
+    background: url('src/shared/assets/images/runes-for-400.svg') no-repeat;
+    background-size: 500px;
+  }
+
+  .scrollEyesList {
+    position: absolute;
+    left: 290px;
+    height: 500px;
+    width: 500px;
+    transform: rotate(45deg);
+    transition: var(--duration-about-list) transform ease-in-out;
+
+    .orangeEyeItem, .yellowEyeItem, .blueEyeItem {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      z-index: 2;
+      opacity: 0.4;
+      transform: scale(0.9);
+      transition: var(--duration-about-list) opacity, var(--duration-about-list) transform;
+    }
+
+    .blueEyeItem {
+      left: 300px;
+      top: 194px;
+      background: url('src/shared/assets/images/blue-eye.png') no-repeat;
+      background-size: 400px;
+    }
+
+    .yellowEyeItem {
+      left: 50px;
+      top: -238px;
+      background: url('src/shared/assets/images/yellow-eye.png');
+    }
+
+    .orangeEyeItem {
+      left: -200px;
+      top: 194px;
+      background: url('src/shared/assets/images/orange-eye.png');
+    }
+
+    .eyeItemActive {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+  }
+
+  .blueEyeItemActive {
+    transform: rotate(165deg);
+    transition: var(--duration-about-list) transform ease-in-out;
+  }
+
+  .yellowEyeItemActive {
+    transform: rotate(285deg);
+    transition: var(--duration-about-list) transform ease-in-out;
+  }
+
+  .orangeEyeItemActive {
+    transform: rotate(45deg);
+    transition: var(--duration-about-list) transform ease-in-out;
+  }
+
+  .triggerRef {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media(width <= 1440px) {
+  .aboutSection {
+    .aboutSectionWrapper {
+      padding-inline: var(--container-padding-x-smaller);
+      overflow: hidden;
+
+      .aboutSectionContainer {
+
+      }
+    }
+  }
+}
+
+@media(width <= 1280px) {
+  .aboutSection {
+    .aboutSectionWrapper {
+      padding-inline: var(--container-padding-x-smaller);
+
+      .aboutSectionContainer {
+
+      }
+    }
+  }
+}
+
+@media(width <= 1024px) {
+  .MainPage {
+    .promoSection {
+      .promoSectionContent {
+        .mainTitleText {
+          margin-top: 40px;
+          font: var(--font-display-xl);
+        }
+
+        .runes {
+          top: 10%;
+        }
+      }
+    }
+  }
+}
+
+@media(width <= 768px) {
+  .aboutSection {
+    .aboutSectionWrapper {
+      padding-inline: var(--container-padding-x-tablet);
+
+      .aboutSectionContainer {
+        .aboutSectionList {
+          .aboutSectionItemActive {
+            > h2 {
+              font-size: 32px;
+              line-height: 36px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media(width <= 480px) {
+  .aboutSection {
+    .aboutSectionWrapper {
+      padding-inline: var(--container-padding-x-mobile);
+
+      .aboutSectionContainer {
+
+      }
+    }
+  }
+}
+
+@media(width <= 320px) {
+  .aboutSection {
+    .aboutSectionWrapper {
+      padding-inline: var(--container-padding-x-mobile);
+
+      .aboutSectionContainer {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .aboutSectionList {
+          width: 100%;
+
+          .aboutSectionItemActive {
+            .aboutSectionText {
+              font: var(--font-text-lg);
+            }
+
+            > h2 {
+              font-size: 24px;
+              line-height: 32px;
+            }
+          }
+        }
+
+        .scrollEyesListContainer {
+          top: 70px;
+          left: -155px;
+          transform: scale(0.6);
+        }
+      }
+    }
+  }
+}
